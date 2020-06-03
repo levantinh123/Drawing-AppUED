@@ -5,55 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
- <script>
-    const colorInput = document.getElementById('color');
-    const weight = document.getElementById('weight');
-    const clear = document.getElementById('clear');
-    const paths = [];
-    let currentPath = [];
-
-function setup() {
-  	createCanvas(window.innerWidth, window.innerHeight);
-  	background(255);
-}
-
-function draw() {
-	noFill();
-	
-	if(mouseIsPressed){
-		const point = {
-			x: mouseX,
-			y: mouseY,
-			color: colorInput.value,
-			weight: weight.value
-		};
-		currentPath.push(point);
-	}
-	
-	paths.forEach(path => {
-		beginShape();
-		path.forEach(point => {
-			stroke(point.color);
-			strokeWeight(point.weight);
-			vertex(point.x, point.y);
-		});
-		endShape();
-	});
-}
-
-function mousePressed() {
-	currentPath = [];
-	paths.push(currentPath);
-}
-
-clear.addEventListener('click', () => {
-	paths.splice(0);
-	background(255);
-});
- </script>
+  
 </head>
 <body>
     
+    <h4>Weekly Coding Challenge #5: Drawing App</h4>
 
     <div class="sidebar">
         <ul>
@@ -80,4 +36,9 @@ clear.addEventListener('click', () => {
         </p>
     </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js"></script>
+
+<script src="js/p5.min.js"></script>
+<script src="js/index.js"></script>
 </html>
